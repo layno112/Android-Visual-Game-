@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/matching/fruits/strawberry.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/matching/fruits/strawberry_static.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/fruits/match/match1.gd" type="Script" id=3]
+[ext_resource path="res://scenes/matching/fruits/cherry_static.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/matching/fruits/cherry.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 540, 960 )
+
+[node name="matching" type="Node2D"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+visible = false
+shape = SubResource( 5 )
+action = "left_click"
+
+[node name="match1" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="strawberry" parent="match1" instance=ExtResource( 1 )]
+position = Vector2( 240, 1022 )
+collision_layer = 2
+
+[node name="strawberry_static" parent="match1" instance=ExtResource( 2 )]
+position = Vector2( 824, 1517 )
+
+[node name="cherry" parent="match1" instance=ExtResource( 5 )]
+position = Vector2( 252, 1517 )
+
+[node name="cherry_static" parent="match1" instance=ExtResource( 4 )]
+position = Vector2( 868, 1022 )

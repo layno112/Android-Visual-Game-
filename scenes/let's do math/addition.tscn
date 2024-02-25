@@ -1,0 +1,289 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/questions.gd" type="Script" id=1]
+[ext_resource path="res://scripts/addition.gd" type="Script" id=2]
+[ext_resource path="res://fonts/RetroFamous.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/global.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 168
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "choice 1" ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "correct"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "choice 1", "Right" ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "correct"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 173
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../next:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 393, -257 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "move_back"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../next:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 393, -257 ), Vector2( 393, 0 ) ]
+}
+
+[node name="addition" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="questions" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Label" type="Button" parent="questions"]
+margin_left = 25.0
+margin_top = 730.0
+margin_right = 406.0
+margin_bottom = 898.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Label2" type="Button" parent="questions"]
+margin_left = 530.0
+margin_top = 733.0
+margin_right = 911.0
+margin_bottom = 901.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Label3" type="Button" parent="questions"]
+margin_left = 25.0
+margin_top = 977.0
+margin_right = 418.0
+margin_bottom = 1151.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Label4" type="Button" parent="questions"]
+margin_left = 537.0
+margin_top = 958.0
+margin_right = 918.0
+margin_bottom = 1126.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Tween" type="Tween" parent="questions"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="questions"]
+anims/RESET = SubResource( 3 )
+anims/correct = SubResource( 4 )
+
+[node name="questions2" type="Node2D" parent="."]
+position = Vector2( 1080, 0 )
+script = ExtResource( 1 )
+
+[node name="Label" type="Button" parent="questions2"]
+margin_left = 25.0
+margin_top = 730.0
+margin_right = 406.0
+margin_bottom = 898.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 2"
+flat = true
+
+[node name="Label2" type="Button" parent="questions2"]
+margin_left = 530.0
+margin_top = 733.0
+margin_right = 911.0
+margin_bottom = 901.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Label3" type="Button" parent="questions2"]
+margin_left = 25.0
+margin_top = 977.0
+margin_right = 418.0
+margin_bottom = 1151.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Label4" type="Button" parent="questions2"]
+margin_left = 537.0
+margin_top = 958.0
+margin_right = 918.0
+margin_bottom = 1126.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Tween" type="Tween" parent="questions2"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="questions2"]
+anims/RESET = SubResource( 7 )
+anims/correct = SubResource( 8 )
+
+[node name="questions3" type="Node2D" parent="."]
+position = Vector2( 2160, 0 )
+script = ExtResource( 1 )
+
+[node name="Label" type="Button" parent="questions3"]
+margin_left = 25.0
+margin_top = 730.0
+margin_right = 406.0
+margin_bottom = 898.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 3"
+flat = true
+
+[node name="Label2" type="Button" parent="questions3"]
+margin_left = 530.0
+margin_top = 733.0
+margin_right = 911.0
+margin_bottom = 901.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Label3" type="Button" parent="questions3"]
+margin_left = 25.0
+margin_top = 977.0
+margin_right = 418.0
+margin_bottom = 1151.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Label4" type="Button" parent="questions3"]
+margin_left = 537.0
+margin_top = 958.0
+margin_right = 918.0
+margin_bottom = 1126.0
+custom_fonts/font = SubResource( 1 )
+text = "choice 1"
+flat = true
+
+[node name="Tween" type="Tween" parent="questions3"]
+
+[node name="next" type="Button" parent="."]
+margin_left = 393.0
+margin_top = -257.0
+margin_right = 645.0
+margin_bottom = -77.0
+custom_fonts/font = SubResource( 2 )
+text = "next"
+
+[node name="universal" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../questions")
+anims/RESET = SubResource( 5 )
+anims/move_back = SubResource( 6 )
+
+[connection signal="move_back" from="questions" to="." method="_on_questions_move_back"]
+[connection signal="pressed" from="questions/Label" to="questions" method="_on_Label_pressed"]
+[connection signal="animation_finished" from="questions/AnimationPlayer" to="questions" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="move_back" from="questions2" to="." method="_on_questions_move_back"]
+[connection signal="pressed" from="questions2/Label" to="questions2" method="_on_Label_pressed"]
+[connection signal="animation_finished" from="questions2/AnimationPlayer" to="questions2" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
